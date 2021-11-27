@@ -25,23 +25,3 @@ img =  cv2.imread(path)
 ```python
 
 ```
-
-## Video Processing
-
-### Single Video Processing
-
-```python
-
-```
-
-### Single-threaded Batch Video Processing
-
-```python
-
-```
-
-### Multithreaded Batch Video Processing
-
-```python
-
-```
