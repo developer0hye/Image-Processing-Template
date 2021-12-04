@@ -44,7 +44,32 @@ if __name__ == "__main__":
 ### Multithreaded Batch Image Processing
 
 ```python
+import cv2
+import numpy as np
+import os
+import tqdm
+import multiprocessing
 
+def read_files(root, ext=(".png", ".jpg", ".bmp", ".jpeg")):
+    files_path = []
+    for r, d, f in os.walk(root):
+        for file in f:
+            if file.lower().endswith(ext):
+                file_path = os.path.join(r, file).replace(os.sep, '/')
+                if not os.path.isfile(file_path):
+                    continue
+                files_path.append(file_path)
+    return files_path
+
+def process(file):
+    img = cv2.imread(file)
+    #Processing
+    
+
+if __name__ == "__main__":
+    files = read_files("D:\datasets\detection\VOCdataset")
+    with multiprocessing.Pool() as p:
+        list(tqdm.tqdm(p.imap(process, files), total=len(files)))
 ```
 
 
