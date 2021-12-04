@@ -48,10 +48,12 @@ if __name__ == "__main__":
 ```
 
 
-## utils
+## Utils
 
 ### Read an Image from Path with Unicode 
 ```python
+import cv2
+import numpy as np
 
 def imread(file):
     img = np.fromfile(file, np.uint8)
