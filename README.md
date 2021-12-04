@@ -21,11 +21,6 @@ import numpy as np
 import os
 import tqdm
 
-def imread(file):
-    img = np.fromfile(file, np.uint8)
-    img = cv2.imdecode(img, cv2.IMREAD_COLOR)
-    return img
-
 def read_files(root, ext=(".png", ".jpg", ".bmp", ".jpeg")):
     files_path = []
     for r, d, f in os.walk(root):
@@ -40,7 +35,7 @@ def read_files(root, ext=(".png", ".jpg", ".bmp", ".jpeg")):
 if __name__ == "__main__":
     files = read_files("path")
     for file in tqdm.tqdm(files):
-        img = imread(file)
+        img = cv2.imread(file)
 
         #Processing
 ```
@@ -50,4 +45,16 @@ if __name__ == "__main__":
 
 ```python
 
+```
+
+
+## utils
+
+### Read an Image from Path with Unicode 
+```python
+
+def imread(file):
+    img = np.fromfile(file, np.uint8)
+    img = cv2.imdecode(img, cv2.IMREAD_COLOR)
+    return img
 ```
