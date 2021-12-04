@@ -67,7 +67,7 @@ def process(file):
     
 
 if __name__ == "__main__":
-    files = read_files("D:\datasets\detection\VOCdataset")
+    files = read_files("path")
     with multiprocessing.Pool() as p:
         list(tqdm.tqdm(p.imap(process, files), total=len(files)))
 ```
