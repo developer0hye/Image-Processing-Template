@@ -106,3 +106,18 @@ def imwrite(filename, img, params=None):
         print(e) 
         return False
 ```
+### Read All Files in a Folder
+
+```python
+import os
+def read_files(root, ext=(".png", ".jpg", ".bmp", ".jpeg")):
+    files_path = []
+    for r, d, f in os.walk(root):
+        for file in f:
+            if file.lower().endswith(ext):
+                file_path = os.path.join(r, file).replace(os.sep, '/')
+                if not os.path.isfile(file_path):
+                    continue
+                files_path.append(file_path)
+    return files_path
+```
